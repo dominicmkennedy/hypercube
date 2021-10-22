@@ -14,20 +14,12 @@ typedef struct _COORD {
     short Y;
 } COORD, *PCOORD;
 
-// struct taken from windows.h
-typedef struct _SMALL_RECT {
-    short Left;
-    short Top;
-    short Right;
-    short Bottom;
-} SMALL_RECT;
-
 void set(char* d, COORD pt, char c)
 {
     d[pt.Y * ww + pt.X] = c;
 }
 
-char getp(char* d, COORD* pts, double err)
+char getp(COORD* pts, double err)
 {
     if (abs(pts[0].Y - pts[2].Y) < 2)
     {
@@ -78,7 +70,7 @@ void ln(char* d, COORD a, COORD b)
 
     for (;;)
     {
-        set(d, pts[1], getp(d, pts, ers[1]));
+        set(d, pts[1], getp(pts, ers[1]));
 
         pts[0] = pts[1];
         pts[1] = pts[2];
@@ -99,7 +91,7 @@ void ln(char* d, COORD a, COORD b)
     }
 
     // add the final point
-    set(d, pts[1], getp(d, pts, ers[1]));
+    set(d, pts[1], getp(pts, ers[1]));
 }
 
 // hypercube vertices in 4D
@@ -444,12 +436,12 @@ void projectTo2D(double vAngle, const double* matView, const double* matRotation
     }
 }
 
-int main(int argc, const char* argv[])
+int main()
 {
     // set console dimensions
-    COORD s = { ww, wh };
-    SMALL_RECT r = { 0, 0, ww, wh };
-    COORD z = { 0, 0 };
+    /*COORD s = { ww, wh };*/
+    /*SMALL_RECT r = { 0, 0, ww, wh };*/
+    /*COORD z = { 0, 0 };*/
 
     WINDOW *w;
 

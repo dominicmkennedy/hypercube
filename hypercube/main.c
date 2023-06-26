@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 
+
 // width and height of screen
 #define ww 100
 #define wh 50

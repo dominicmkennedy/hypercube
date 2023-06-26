@@ -179,7 +179,7 @@ double norm4(const double* V)
 void cross4(double* result, const double* U, const double* V, const double* W)
 {
     // intermediate values
-    double A, B, C, D, E, F;       
+    double A, B, C, D, E, F;
 
     // calculate intermediate values
     A = (V[0] * W[1]) - (V[1] * W[0]);
@@ -270,7 +270,7 @@ void view4(double* result)
     double* Wd = result + 4 * 3;
 
     // vector norm
-    double norm;    
+    double norm;
 
     // get the normalized Wd column-vector.
     vecSub4(Wd, to4, from4);
@@ -300,7 +300,7 @@ void projectTo3D(double vAngle, const double* matView, const double* matRotation
     const double* Wd = matView + 4 * 3;
 
     // divisor Values
-    double S, T;    
+    double S, T;
 
     T = 1 / tan(vAngle / 2);
 
@@ -489,14 +489,14 @@ int main()
 
         werase(w);
         wattron(w, COLOR_PAIR(1));
-        wprintw(w, d);
+        wprintw(w, "%s", d);
         box(w, 0 , 0);
         wrefresh(w);
 
         usleep(6500);
-   
+
     }
-    
+
     delwin(w);
     endwin();
 
